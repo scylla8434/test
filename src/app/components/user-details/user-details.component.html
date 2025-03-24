@@ -1,0 +1,29 @@
+<div class="card" *ngIf="user">
+    <div class="card-header bg-secondary text-white">
+      <h4>User Details - {{ user.name }}</h4>
+    </div>
+    <div class="card-body">
+      <p><strong>Username:</strong> {{ user.username }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Phone:</strong> {{ user.phone }}</p>
+      <p><strong>Website:</strong> {{ user.website }}</p>
+  
+      <hr />
+  
+      <h5>Address</h5>
+      <p>{{ user.address.street }}, {{ user.address.suite }}</p>
+      <p>{{ user.address.city }} - {{ user.address.zipcode }}</p>
+  
+      <hr />
+  
+      <h5>Company</h5>
+      <p><strong>Name:</strong> {{ user.company.name }}</p>
+      <p><strong>Catch Phrase:</strong> {{ user.company.catchPhrase }}</p>
+      <p><strong>BS:</strong> {{ user.company.bs }}</p>
+    </div>
+  </div>
+  
+  <div *ngIf="!user">
+    <p class="text-muted">User not found.</p>
+  </div>
+  

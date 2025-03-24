@@ -1,0 +1,8 @@
+/* Basic styling for form controls */
+.is-invalid {
+    border: 1px solid #dc3545;
+  }
+  .invalid-feedback {
+    color: #dc3545;
+  }
+  

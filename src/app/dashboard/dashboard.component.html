@@ -1,0 +1,79 @@
+<div class="dashboard">
+    <!-- Top Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <div class="container-fluid">
+        <!-- Logo and Title -->
+        <a class="navbar-brand d-flex align-items-center" href="#">
+          <img src="/assets/logo.png" alt="Logo" class="logo">
+          <span class="ms-2">User Management</span>
+        </a>
+        <!-- Right-side Controls -->
+        <div class="navbar-text text-white d-flex align-items-center">
+          <span class="me-3">
+            <i class="fas fa-clock"></i> {{ currentTime | date:'medium' }}
+          </span>
+          <button class="btn btn-outline-light btn-sm" (click)="logout()">Logout</button>
+        </div>
+      </div>
+    </nav>
+  
+    <!-- Main Section: Sidebar + Content -->
+    <div class="container-fluid main-container">
+      <div class="row">
+        <!-- Sidebar -->
+        <div [ngClass]="{
+              'col-md-2 sidebar': !sidebarCollapsed, 
+              'col-md-1 sidebar-collapsed': sidebarCollapsed
+            }">
+          <div class="sidebar-content">
+            <!-- Toggle Button always visible -->
+            <button class="btn btn-primary toggle-btn" (click)="toggleSidebar()">
+              <i class="fas" [ngClass]="{
+                'fa-angle-double-left': !sidebarCollapsed, 
+                'fa-angle-double-right': sidebarCollapsed
+              }"></i>
+            </button>
+            <!-- Placeholder Sidebar Links -->
+            <ul class="nav flex-column mt-4">
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/">
+                  <i class="fas fa-home"></i> Home
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/dashboard/add-user">
+                  <i class="fas fa-user-edit"></i> Form
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/dashboard/counter">
+                  <i class="fas fa-calculator"></i> Counter
+                </a>
+              </li>
+              
+              
+             
+            </ul>
+          </div>
+        </div>
+  
+        <!-- Main Content Area -->
+        <div [ngClass]="{
+              'col-md-10 content': !sidebarCollapsed, 
+              'col-md-11 content-expanded': sidebarCollapsed
+            }">
+          <div class="content-wrapper">
+            <router-outlet></router-outlet>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Footer -->
+    <footer class="footer bg-dark text-white text-center py-3">
+      <div class="container">
+        <span>&copy; {{ currentTime | date:'yyyy' }} Scylla8434. All rights reserved.</span>
+      </div>
+    </footer>
+  </div>
+  
